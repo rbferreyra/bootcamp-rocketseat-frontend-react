@@ -26,7 +26,7 @@ export default function App() {
     //2º. função para atualizarmos esse valor
 
     // IMUTABILIDADE
-    function handleAddProject() {
+    async function handleAddProject() {
         // no metodo abaixo, estamos alterando a variável, incluindo novo valor
         // dessa forma, não respeita a "imutabilidade" da váriavel
         // projects.push(`Novo projeto ${Date.now()}`);
@@ -35,9 +35,16 @@ export default function App() {
         // deve-se criar um novo array, não adicionando um novo valor ao array
         // assim percorremos a variável utilizando SPREAD OPERATOR
         // adicionando um novo valor
-        setProjects([ ...projects, `Novo projeto ${Date.now()}`]);
+        // setProjects([ ...projects, `Novo projeto ${Date.now()}`]);
+        
+        const response = await api.post('projects', {
+            title: `Novo projeto ${Date.now()}`,
+            owner: "Jhon Doe"
+        });
 
-        console.log(projects);
+        const project = response.data;
+        
+        setProjects([ ...projects, project]);
     }
 
     return (
