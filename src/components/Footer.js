@@ -4,7 +4,7 @@ export default function Footer() {
     return (
         <footer>
             <hr />
-            Desenvolvido por Rocketseat @ Todos os direitos reservados 2020
+            Desenvolvido por rbferreyra @ Todos os direitos reservados 2020
         </footer>
     );
 }
