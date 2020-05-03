@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import './App.css';
+import backgroundImage from './assets/background.jpg';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -36,6 +39,12 @@ export default function App() {
     return (
         <React.Fragment>
             <Header title="Projetos" />
+
+            {/* 
+            para renderizar uma imagem, precisa configurar no webpack 
+            uma regra chamada "file-loader"
+            */}
+            <img width={300} src={backgroundImage} />
 
             <ul>
                 {projects.map(project => <li key={project}>{project}</li>)}
